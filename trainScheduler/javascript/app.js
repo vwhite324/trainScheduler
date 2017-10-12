@@ -11,12 +11,14 @@ $(document).ready(function(){
   firebase.initializeApp(config);
  var myFirebase= firebase.database().ref();
 // grab data from form
-$("#submit").on('click', function(){
-  var train = $("#train_name").val().trim();
-  var destination = $("#destination").val().trim();
+$("#add-train").on('click', function(event){
+  event.preventDefault();
+
+  var train = $("#name-input").val().trim();
+  var destination = $("#destination-input").val().trim();
   var frequency = $("#frequency").val().trim();
-  var firstTrain = $("#firstTrain").val().trim();
-console.log("test");
+  var firstTrain = $("#first-train").val().trim();
+//console.log("test");
   //add data from form and add it to firebase DB
   myFirebase.push({
               trainName: train,
